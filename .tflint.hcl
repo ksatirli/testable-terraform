@@ -1,5 +1,6 @@
 config {
-  module = true
+  # modules should be their own repository and should be tested separately
+  module = false
   force  = false
 }
 
