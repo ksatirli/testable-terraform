@@ -37,7 +37,7 @@ init: # Initializes Terraform
 lint: # Formats and validates Terraform
 	terraform \
 		fmt \
-			-recursive
+			-recursive \
 	&& \
 	terraform \
 		validate
