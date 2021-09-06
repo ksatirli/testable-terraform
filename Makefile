@@ -10,13 +10,6 @@ color_off    = $(shell tput sgr0)
 color_bright = $(shell tput bold)
 plan_file    = "plan.tfplan"
 
-# configuration for Terraform-specific variables
-ifdef auto-approve
-terraform_auto_approve = -auto-approve
-else
-terraform_auto_approve =
-endif
-
 .PHONY: plan
 plan: # Plans prerequisite resources with Terraform
 	terraform \
@@ -27,14 +20,12 @@ plan: # Plans prerequisite resources with Terraform
 apply: # Creates prerequisite resources with Terraform
 	terraform \
 		apply \
-			$(terraform_auto_approve) \
 			"$(plan_file)"
 
 .PHONY: destroy
 destroy: # Destroys prerequisite resources with Terraform
 	terraform \
 		destroy \
-			$(terraform_auto_approve)
 
 .PHONY: init
 init: # Initializes Terraform
