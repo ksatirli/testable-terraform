@@ -9,6 +9,16 @@ output "ec2_console_url" {
   value       = "https://${var.aws_region}.console.aws.amazon.com/ec2/v2/home?region=${var.aws_region}#Instances:"
 }
 
+output "ec2_ids" {
+  description = "EC2 Instance Ids"
+  value       = module.our_application[*].instance_ids
+}
+
+output "ec2_tags" {
+  description = "EC2 Instance Ids"
+  value       = module.our_application[*].instance_tags
+}
+
 output "vpc_id" {
   description = "Default VPC Id"
   value       = module.our_application[0].vpc_id

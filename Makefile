@@ -8,8 +8,8 @@ SHELL         := sh
 
 color_off        = $(shell tput sgr0)
 color_bright     = $(shell tput bold)
-plan_file_binary = "terraform_plan.tfplan"
-plan_file_json   = "terraform_plan.json"
+plan_file_binary = "terraform.tfplan"
+plan_file_json   = "terraform.tfplan.json"
 tests_directory  = "./tests"
 
 .PHONY: plan
