@@ -1,0 +1,28 @@
+---
+name: "Code Quality: tflint"
+
+# yamllint disable-line rule:truthy
+on:
+  pull_request:
+
+jobs:
+  lint:
+    name: tflint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+
+      - name: Setup `tflint`
+        uses: terraform-linters/setup-tflint@v1
+        env:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          path: ".tflint.hcl"
+
+      - name: Initialize `tflint`
+        run: tflint --init
+
+      - name: Run `tflint`
+        run: tflint --format compact

@@ -1,6 +1,11 @@
 ### Terraform ###
 
 **/.terraform/*
+*.tfplan
 *.tfstate
 *.tfstate.*
 *.tfvars
+
+# ignore custom-named Terraform Plan file (and JSON equivalent)
+terraform_plan.tfplan
+terraform_plan.json
