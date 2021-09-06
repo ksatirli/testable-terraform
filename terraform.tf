@@ -1,6 +1,9 @@
 terraform {
   # specify a backend to store Terraform State in
   # see https://www.terraform.io/docs/language/settings/backends/remote.html
+
+  # This is useful if you are using Terraform Cloud (sign up via https://app.terraform.io).
+  # If you are not currently using Terraform Cloud, disable the next 7 lines of code.
   backend "remote" {
     organization = "ksatirli"
 
@@ -33,13 +36,4 @@ provider "aws" {
   }
 
   region = var.aws_region
-}
-
-# see https://registry.terraform.io/providers/hashicorp/aws/latest/docs#region
-variable "aws_region" {
-  type        = string
-  description = "This is the AWS region."
-
-  # specify the Stockholm, SE region
-  default = "eu-north-1"
 }
