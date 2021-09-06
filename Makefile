@@ -10,9 +10,10 @@ color_off        = $(shell tput sgr0)
 color_bright     = $(shell tput bold)
 plan_file_binary = "terraform_plan.tfplan"
 plan_file_json   = "terraform_plan.json"
+tests_directory  = "./tests"
 
 .PHONY: plan
-plan: # Plans prerequisite resources with Terraform
+plan: # Plans resources with Terraform
 	terraform \
 		plan \
 			-out="$(plan_file_binary)"
@@ -25,19 +26,47 @@ plan-convert: # Converts a binary Terraform Plan file into JSON
 	> "$(plan_file_json)"
 
 .PHONY: apply
-apply: # Creates prerequisite resources with Terraform
+apply: # Creates resources with Terraform
 	terraform \
 		apply \
 			"$(plan_file_binary)"
 
 .PHONY: destroy
-destroy: # Destroys prerequisite resources with Terraform
+destroy: # Destroys resources with Terraform
 	terraform \
 		destroy \
 
 .PHONY: init
 init: # Initializes Terraform
 	terraform \
+		init \
+			-upgrade \
+			-chdir="$(tests_directory)"
+
+.PHONY: test-plan
+test-plan: # Plans Terraform Test resources
+	terraform \
+		-chdir="$(tests_directory)" \
+		plan \
+			-out="$(plan_file_binary)"
+
+.PHONY: test-apply
+test-apply: # Creates Terraform Test resources
+	terraform \
+		-chdir="$(tests_directory)" \
+		apply \
+		"$(plan_file_binary)"
+
+.PHONY: test-destroy
+test-destroy: # Destroys Terraform Test resources
+	terraform \
+		-chdir="$(tests_directory)" \
+		destroy
+
+.PHONY: test-init
+test-init: # Initializes Terraform Test directory
+	terraform \
+		-chdir="$(tests_directory)" \
 		init \
 			-upgrade
 
