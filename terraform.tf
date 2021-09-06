@@ -29,10 +29,7 @@ provider "aws" {
   # specify default tags that will be applied to ALL resources
   # see https://registry.terraform.io/providers/hashicorp/aws/latest/docs#default_tags
   default_tags {
-    tags = {
-      Environment = "testcon-europe-2021"
-      Owner       = "kerim@hashicorp.com"
-    }
+    tags = var.aws_default_tags
   }
 
   region = var.aws_region
