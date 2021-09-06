@@ -7,7 +7,7 @@ on:
 
 jobs:
   lint:
-    name: super-linter
+    name: tflint
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
@@ -20,6 +20,9 @@ jobs:
         env:
           token: ${{ secrets.GITHUB_TOKEN }}
           path: ".tflint.hcl"
+
+      - name: Initialize `tflint`
+        run: tflint --init
 
       - name: Run `tflint`
         run: tflint --format compact
