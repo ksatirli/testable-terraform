@@ -5,10 +5,10 @@ output "ami_id" {
 
 output "vpc_id" {
   description = "VPC Id"
-  value = data.aws_vpc.default.id
+  value       = data.aws_vpc.default.id
 }
 
 output "sg_id" {
   description = "Security Group Id"
-  value = data.aws_security_group.default.id
+  value       = data.aws_security_group.default.id
 }
