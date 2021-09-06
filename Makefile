@@ -41,7 +41,6 @@ init: # Initializes Terraform
 	terraform \
 		init \
 			-upgrade \
-			-chdir="$(tests_directory)"
 
 .PHONY: test-plan
 test-plan: # Plans Terraform Test resources
