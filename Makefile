@@ -56,6 +56,12 @@ test-apply: # Creates Terraform Test resources
 		apply \
 		"$(plan_file_binary)"
 
+.PHONY: test-console
+test-console: # Spawns Terraform Test Console
+	terraform \
+		-chdir="$(tests_directory)" \
+		console
+
 .PHONY: test-destroy
 test-destroy: # Destroys Terraform Test resources
 	terraform \
