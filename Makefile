@@ -64,7 +64,7 @@ clear:
 	clear
 
 .PHONY: opa-eval
-opa-eval: # Runs `opa eval``
+opa-eval: # Runs `opa eval` (specify `policy` like so: `policy=tagging`)
 	opa \
 		eval \
 			--format pretty \
