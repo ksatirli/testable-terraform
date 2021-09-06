@@ -75,6 +75,11 @@ test-init: # Initializes Terraform Test directory
 		init \
 			-upgrade
 
+.PHONY: test
+test: # Run Terraform Test
+	terraform \
+		test
+
 .PHONY: lint
 lint: # Formats and validates Terraform
 	terraform \
