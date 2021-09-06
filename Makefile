@@ -8,7 +8,7 @@ SHELL         := sh
 
 color_off    = $(shell tput sgr0)
 color_bright = $(shell tput bold)
-plan_file    = "$(plan_file)
+plan_file    = "plan.tfplan"
 
 # configuration for Terraform-specific variables
 ifdef auto-approve
