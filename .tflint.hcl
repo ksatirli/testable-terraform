@@ -1,5 +1,5 @@
 config {
-  module = false
+  module = true
   force  = false
 }
 

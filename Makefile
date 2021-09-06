@@ -42,6 +42,15 @@ lint: # Formats and validates Terraform
 	terraform \
 		validate
 
+.PHONY: tflint-init
+tflint-init: # Initializes tflint
+	tflint \
+		--init \
+
+.PHONY: tflint
+tflint: # Runs tflint
+	tflint
+
 .SILENT .PHONY: clear
 clear:
 	clear
