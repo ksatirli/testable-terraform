@@ -15,6 +15,14 @@ jobs:
         with:
           fetch-depth: 1
 
+      - name: Setup `terraform
+        uses: hashicorp/setup-terraform@v1
+        with:
+          terraform_version: 1.0.6
+
+      - name: Initialize `terraform`
+        run: terraform init
+
       - name: Setup `tflint`
         uses: terraform-linters/setup-tflint@v1
         env:
