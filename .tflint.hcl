@@ -10,9 +10,9 @@ plugin "aws" {
   version = "0.7.1"
   source  = "github.com/terraform-linters/tflint-ruleset-aws"
 
-  # enable deep-checking
+  # disable deep-checking to allow for running inside GitHub Actions
   # see https://github.com/terraform-linters/tflint-ruleset-aws/blob/master/docs/deep_checking.md
-  deep_check = true
+  deep_check = false
 
   # set AWS region to operate in
   # see https://github.com/terraform-linters/tflint-ruleset-aws/blob/master/docs/configuration.md#region
