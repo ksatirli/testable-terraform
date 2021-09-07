@@ -1,6 +1,6 @@
 output "ami_id" {
   description = "EC2 Image Id"
-  value       = module.our_application[0].ami_id
+  value       = module.our_application[*].ami_id
 }
 
 # create easily-clickable link for EC2 Console
@@ -15,7 +15,7 @@ output "ec2_ids" {
 }
 
 output "ec2_tags" {
-  description = "EC2 Instance Ids"
+  description = "EC2 Instance Tags"
   value       = module.our_application[*].instance_tags
 }
 

@@ -9,7 +9,7 @@ variable "aws_region" {
 
 # see https://registry.terraform.io/providers/hashicorp/aws/latest/docs#default_tags
 variable "aws_default_tags" {
-  type = map(string)
+  type        = map(string)
   description = "Tags to apply across all resources."
 
   default = {
